@@ -1,0 +1,42 @@
+@import "compass/css3";
+
+// @font-face generation with compass is not giving right path.
+// We need use font-url with Sass to get these right.
+@font-face {
+  font-family: 'dsgnrs-in';
+  src: font-url('dsgnrs-in.eot');
+  src: local('dsgnrs-in'), font-url('dsgnrs-in.eot?#iefix') format("embedded-opentype"), font-url('dsgnrs-in.woff') format("woff"), font-url('dsgnrs-in.ttf') format("truetype"), font-url('dsgnrs-in.svg#dsgnrs-in') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'dsgnrs-in';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"]:before {
+*/
+.icon-logo:before, .icon-location:before {
+  font-family: 'dsgnrs-in';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.icon-logo:before {
+  content: "\e000";
+}
+.icon-location:before {
+  content: "\e001";
+}

@@ -1,0 +1,43 @@
+@import "compass/utilities/general/clearfix";
+@import "mixins";
+
+$base-gutter: 32px;
+$base-sidegutter: 16px;
+
+@include breakpoint(desktop) {
+  .wrapper {
+    width: 90%;
+    max-width: 980px;
+    margin: 0 auto;
+    @include pie-clearfix();
+  }
+
+  [class*="d1"], [class*="d2"] {
+    display: block;
+    float: left;
+    margin-right: -100%;
+  }
+
+  .d1 {
+    width: percentage(687px/980px);
+  }
+  .d2 {
+    width: percentage(229px/980px);
+  }
+  .d1-d2 {
+    width: percentage(948px/980px);
+  }
+
+  //Grid Relationship
+  [class*="d2"] {
+    margin-left: percentage(($base-sidegutter + 687px + 32px)/980px);
+  }
+  [class*="d1"] {
+    margin-left: $base-sidegutter;
+    clear: left;
+  }
+
+  [class*="d2"]+[class*="d2"] {
+    clear: left;
+  }
+}
