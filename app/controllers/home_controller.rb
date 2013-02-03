@@ -1,5 +1,11 @@
 class HomeController < ApplicationController
   def index
-    @place = ['Bangalore', 'Mumbai', 'New Delhi'].sample
+    city ||= params[:city]
+
+    @place = city ? city : "India"
+
+    unless ['bangalore', 'mumbai', 'new-delhi', 'india'].include?(@place.downcase)
+      not_found
+    end
   end
 end
