@@ -1,0 +1,22 @@
+.d1
+  - @users.each do |user|
+    .user-card.vcard
+      .inner
+        .dp
+          %a{ :href => user.twitter_profile_url,
+              :title => "#{user.name} on Twitter",
+              :target => "_blank" }
+            %img{:src => user.image_url}
+        .r
+          %h3.name
+            %a.url{ :href => user.url,
+                :title => "Website",
+                :target => "_blank" }
+              %span.fn= user.name
+
+          %p.minor
+            %a.url{ :href => user.company_url,
+                :title => "Company Website",
+                :target => "_blank" }
+              %span.org= user.company
+          /· Bangalore

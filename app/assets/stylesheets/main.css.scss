@@ -9,11 +9,12 @@ $base-line-height: 32px;
 @include establish-baseline();
 // http://modularscale.com/scale/?px1=24&px2=32&ra1=1.333&ra2=0
 
-$base-color: #595643;
+$color-base: #595643;
 $color-link: #ED834E;
 $color-link-hover: darken(#ED834E, 15%);
-$color-border: lighten($base-color, 55%);
+$color-border: lighten($color-base, 55%);
 $color-background: lighten(#EBE1C5, 11%);
+$color-background-success: #88d07e;
 
 $color-notification-background: darken($color-background, 10%);
 $color-notification-background-error: $color-link-hover;
@@ -22,7 +23,7 @@ $color-notification-background-error: $color-link-hover;
 
 body {
   background: $color-background;
-  color: $base-color;
+  color: $color-base;
   font-weight: 300;
   font-family: "chaparral-pro", Times, "Times New Roman", serif;
 }
@@ -105,7 +106,7 @@ p { }
     @include adjust-font-size-to(12px, 2/3);
     display: block;
     padding: 0 9px;
-    color: $base-color;
+    color: $color-base;
   }
 
   a:hover {
@@ -149,6 +150,13 @@ p { }
     @include padding-trailer(1);
   }
 
+  a {
+    color: $color-base;
+  }
+  a:hover {
+    color: $color-link-hover;
+  }
+
   .dp {
     @include border-radius(35px);
     float: left;
@@ -159,6 +167,17 @@ p { }
       @include border-radius(32px);
       width: 63px;
       height: 63px;
+    }
+    a {
+      display: block;
+      img {
+        @include transition((box-shadow 0.3s ease-out));
+      }
+    }
+    a:hover {
+      img {
+        @include box-shadow(0 0 0 2px transparentize($color-link, 0.3));
+      }
     }
   }
   .r {
@@ -196,7 +215,7 @@ p { }
 }
 
 .info-bubble {
-  color: $base-color;
+  color: $color-base;
   text-decoration: none;
 }
 
@@ -212,11 +231,41 @@ p { }
   }
 }
 
+// Form
+.form {
+  .control-group {
+    @include trailer(1);
+  }
+  .error-text {
+    @include leader(1/3);
+    @include adjust-font-size-to(18px);
+  }
+
+}
+.form-horizontal {
+  .control-label {
+    float: left;
+    width: 17.876637554585%; // 123px / 687px
+    //text-align: right;
+  }
+  .controls {
+    width: 77.465429403202%; //533px / 687px
+    margin-left: 22.561863173217%; //123px + 32px / 687px
+  }
+}
+
 // Notification
 .notification {
   @include box-shadow(0 3px 0 rgba(0, 0, 0, 0.02));
   margin-bottom: 2px;
   background-color: $color-notification-background;
+}
+.notification.success {
+  background-color: $color-background-success;
+  color: $color-background;
+  a {
+    color: $color-background;
+  }
 }
 .notification.error {
   background-color: $color-notification-background-error;

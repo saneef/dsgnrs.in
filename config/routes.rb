@@ -1,16 +1,17 @@
 DsgnrsIn::Application.routes.draw do
-  get "users/apply"
+  resources :users
+  # will give routes for users:
+  # index, new, create, show, edit, update, destroy
 
   get "sessions/create"
   get "sessions/destroy"
-
-  get "/apply" => "users#edit", :as => :apply
-  get "/profile" => "users#edit", :as => :profile
 
   match "/auth/twitter/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
   match '/auth/failure' => "sessions#failure"
 
-  match "/:city", :to => 'home#index', :as => :city
-  root :to => 'home#index'
+  get "/apply" => "users#edit", :as => :apply
+  get "/profile" => "users#edit", :as => :profile
+  match "/:city", :to => 'users#index', :as => :city
+  root :to => 'users#index'
 end

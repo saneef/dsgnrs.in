@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
     def not_found
       raise ActionController::RoutingError.new('Not Found')
     end
+
+    def permission_denied
+      render :file => "public/404.html", :status => 401, :layout => false
+    end
 end
