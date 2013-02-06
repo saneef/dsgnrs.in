@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
     @user = current_user
     if params[:id]
-      if current_user.is_admin
+      if current_user.is_admin?
         @user = User.find(params[:id])
       else
         not_found
