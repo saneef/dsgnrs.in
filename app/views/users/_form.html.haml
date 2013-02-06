@@ -1,7 +1,6 @@
 = form_for @user, :html => {:class => 'form form-horizontal'} do |f|
   - if @user.errors.any?
-    %div#error_explanation
-      %p= "Couldn't save the profile. There #{@user.errors.size > 1 ? "were":"was"} #{pluralize(@user.errors.size, "error")}; fix #{@user.errors.size > 1 ? "them":"it"} and try saving again."
+    .error-summary Couldn't save the profile. There #{@user.errors.size > 1 ? "were":"was"} #{pluralize(@user.errors.size, "error")}; fix #{@user.errors.size > 1 ? "them":"it"} and try saving again.
 
   %div{:class => ["control-group", "#{@user.errors.has_key?(:name) ? "error" : nil}"]}
     = f.label :name, :class => 'control-label'
@@ -18,12 +17,12 @@
         .error-text= msg
 
   %div.control-group
-    = f.label :nickname, :class => 'control-label'
+    = f.label :nickname, "Twitter", :class => 'control-label'
     .controls
       = f.text_field :nickname, :readonly => true
 
   %div{:class => ["control-group", "#{@user.errors.has_key?(:url) ? "error" : nil}"]}
-    = f.label :url, :class => 'control-label'
+    = f.label :url, "Personal Website or Portfolio", :class => 'control-label'
     .controls
       = f.text_field :url
       - @user.errors[:url].each do |msg|
@@ -37,10 +36,10 @@
         .error-text= msg
 
   %div{:class => ["control-group", "#{@user.errors.has_key?(:company_url) ? "error" : nil}"]}
-    = f.label :company_url, :class => 'control-label'
+    = f.label :company_url, "Company Website", :class => 'control-label'
     .controls
       = f.text_field :company_url
       - @user.errors[:company_url].each do |msg|
         .error-text= msg
 
-  = submit_tag "Apply", :disable_with => "Please wait..."
+  = submit_tag (@user.is_approved? ? "Save Profile":"Apply"), :disable_with => "Please wait...", :class => 'button'

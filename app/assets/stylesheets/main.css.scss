@@ -19,7 +19,14 @@ $color-background-success: #88d07e;
 $color-notification-background: darken($color-background, 10%);
 $color-notification-background-error: $color-link-hover;
 
+$color-error: $color-link-hover;
+$border-radius-base: 3px;
+
 @import "grid";
+
+@mixin font-bold {
+  font-weight: 400;
+}
 
 body {
   background: $color-background;
@@ -29,10 +36,10 @@ body {
 }
 
 h1 {
+  @include font-bold;
   @include adjust-font-size-to(43px);
-  @include trailer(1/3);
-  font-weight: 400;
   @include leader(1/2);
+  @include trailer(1/3);
 }
 
 sup, sub {
@@ -53,6 +60,10 @@ a:hover {
 p { }
 .minor {
   @include adjust-font-size-to(18px);
+}
+
+input {
+  color: $color-base;
 }
 
 .header {
@@ -81,6 +92,7 @@ p { }
 }
 .dropdown-menu {
   @include box-shadow(0 3px 0 rgba(0, 0, 0, 0.05));
+  @include border-radius($border-radius-base);
   position: absolute;
   top: 90%;
   z-index: 1000;
@@ -113,7 +125,6 @@ p { }
     background: $color-link;
     color: $color-background;
   }
-  @include border-radius(3px);
 }
 .dropdown-menu::before {
   position: absolute;
@@ -185,8 +196,8 @@ p { }
   }
   .name {
     @include leader(0);
-    @include trailer(0);
     font-weight: 300;
+    @include trailer(0);
   }
   .minor {
     @include leader(0);
@@ -213,6 +224,12 @@ p { }
   background: $color-link-hover;
   color: $color-background;
 }
+.button:active, .button:focus {
+  color: darken($color-background, 15%);
+}
+input.button {
+  border: 0;
+}
 
 .info-bubble {
   color: $color-base;
@@ -225,32 +242,57 @@ p { }
 .footer-minor {
   .logo {
     @include adjust-font-size-to(57px);
+    @include leader(1/3);
     color: $color-border;
     text-align: center;
-    @include leader(1/3);
   }
 }
 
 // Form
+input[type="text"] {
+  @include box-shadow(0);
+  padding: 2px 6px;
+  border: 1px solid $color-border;
+  background: lighten($color-background, 15%);
+}
+input[readonly="readonly"],
+input[readonly] {
+  color: lighten($color-base, 15%);
+  background: darken($color-background, 1%)
+}
 .form {
+  @include trailer(1);
+
   .control-group {
     @include trailer(1);
   }
-  .error-text {
-    @include leader(1/3);
+  label {
     @include adjust-font-size-to(18px);
   }
-
+  .error-text {
+    @include font-bold;
+    @include leader(1/3);
+    @include adjust-font-size-to(18px);
+    color: $color-error;
+  }
+  .error-summary {
+    @include rhythm_borders(0px, 1/3);
+    @include trailer();
+    @include border-radius($border-radius-base);
+    color: $color-background;
+    background: $color-notification-background-error;
+  }
 }
+
 .form-horizontal {
   .control-label {
-    float: left;
-    width: 17.876637554585%; // 123px / 687px
+    //float: left;
+    //width: 17.876637554585%; // 123px / 687px
     //text-align: right;
   }
   .controls {
-    width: 77.465429403202%; //533px / 687px
-    margin-left: 22.561863173217%; //123px + 32px / 687px
+    //width: 77.465429403202%; //533px / 687px
+    //margin-left: 22.561863173217%; //123px + 32px / 687px
   }
 }
 
@@ -280,8 +322,8 @@ p { }
 
   p {
     @include adjust-font-size-to(18px);
-    @include trailer(0);
     @include leader(0);
+    @include trailer(0);
   }
 
   .dismiss {

@@ -6,13 +6,15 @@ class UsersController < ApplicationController
     if city
       not_found
     else
-      @users = User.all
+      @users = User.where(:is_approved => true)
     end
   end
 
   # GET /users/1
   def show
-    unless current_user && current_user.is_admin?
+    if current_user && current_user.is_admin?
+      redirect_to action: "edit"
+    else
       not_found
     end
   end
