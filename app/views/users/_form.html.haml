@@ -42,4 +42,9 @@
       - @user.errors[:company_url].each do |msg|
         .error-text= msg
 
+  %div{:class => ["control-group"]}
+    .controls
+      = f.check_box :is_approved
+      = f.label :is_approved, "List on Dsgnrs.in"
+
   = submit_tag (@user.is_approved? ? "Save Profile":"Apply"), :disable_with => "Please wait...", :class => 'button'

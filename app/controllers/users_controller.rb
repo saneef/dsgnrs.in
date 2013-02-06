@@ -61,6 +61,10 @@ class UsersController < ApplicationController
     @user.company = params[:user][:company]
     @user.company_url = params[:user][:company_url]
 
+    if current_user.is_admin?
+      @user.is_approved = params[:user][:is_approved]
+    end
+
     if @user.valid?
       @user.save
       flash[:success] = 'Profile Saved Successfully'

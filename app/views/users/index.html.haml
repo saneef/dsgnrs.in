@@ -14,9 +14,13 @@
                 :target => "_blank" }
               %span.fn= user.name
 
-          %p.minor
+          %p.minor<
             %a.url{ :href => user.company_url,
                 :title => "Company Website",
                 :target => "_blank" }
               %span.org= user.company
+            - if current_user.is_admin?
+              = " · "
+              = link_to "Edit", edit_user_path(user.id)
+
           /· Bangalore
