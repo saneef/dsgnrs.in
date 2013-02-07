@@ -1,4 +1,4 @@
-.d1
+.d1.user-cards
   - @users.each do |user|
     .user-card.vcard
       .inner
@@ -19,7 +19,7 @@
                 :title => "Company Website",
                 :target => "_blank" }
               %span.org= user.company
-            - if current_user.is_admin?
+            - if current_user && current_user.is_admin?
               = " · "
               = link_to "Edit", edit_user_path(user.id)
 
