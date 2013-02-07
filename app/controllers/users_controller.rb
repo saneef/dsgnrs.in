@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
   # PUT /users/1
   def update
-    unless current_user
+    if current_user.nil?
       permission_denied
     end
 
