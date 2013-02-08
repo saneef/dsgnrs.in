@@ -4,18 +4,27 @@
 $base-gutter: 32px;
 $base-sidegutter: 16px;
 
-@include breakpoint(desktop) {
-  .wrapper {
-    width: 90%;
-    max-width: 980px;
-    margin: 0 auto;
-    @include pie-clearfix();
-  }
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+  @include pie-clearfix();
+}
 
-  [class*="d1"], [class*="d2"] {
-    display: block;
-    float: left;
+[class*="d1"], [class*="d2"] {
+  display: block;
+  float: left;
+
+  @include breakpoint(mobile) {
+    width: 100%;
+  }
+  @include breakpoint(tablet) {
     margin-right: -100%;
+  }
+}
+
+@include breakpoint(tablet) {
+  .wrapper {
+    max-width: 980px;
   }
 
   .d1 {
@@ -39,5 +48,11 @@ $base-sidegutter: 16px;
 
   [class*="d2"]+[class*="d2"] {
     clear: left;
+  }
+}
+
+@include breakpoint(mobile) {
+  .m-hide {
+    display: none;
   }
 }

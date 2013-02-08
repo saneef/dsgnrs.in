@@ -1,4 +1,4 @@
-= form_for @user, :html => {:class => 'form form-horizontal'} do |f|
+= form_for @user, :html => {:class => 'form'} do |f|
   - if @user.errors.any?
     .error-summary Couldn't save the profile. There #{@user.errors.size > 1 ? "were":"was"} #{pluralize(@user.errors.size, "error")}; fix #{@user.errors.size > 1 ? "them":"it"} and try saving again.
 

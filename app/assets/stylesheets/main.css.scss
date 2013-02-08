@@ -34,13 +34,25 @@ body {
   color: $color-base;
   font-weight: 300;
   font-family: "chaparral-pro", Times, "Times New Roman", serif;
+
+  @include breakpoint(mobile) {
+    @include adjust-font-size-to(21px);
+  }
 }
 
 h1 {
   @include font-bold;
-  @include adjust-font-size-to(43px);
   @include leader(1/2);
-  @include trailer(1/3);
+  @include adjust-font-size-to(43px);
+
+  @include breakpoint(tablet) {
+    @include trailer(1/3);
+  }
+
+  @include breakpoint(mobile) {
+    @include adjust-font-size-to(31px);
+    margin: 0;
+  }
 }
 
 sup, sub {
@@ -68,12 +80,21 @@ input {
 }
 
 .header {
-  @include padding-leader();
+  @include breakpoint(mobile) {
+    @include trailer();
+  }
+  @include breakpoint(desktop) {
+    @include padding-leader();
+  }
 
   .change-city > a {
     @include border-radius(24px);
-    margin-left: -10px;
+    margin-left: -7px;
     padding: 2px 12px 2px 12px;
+
+    @include breakpoint(tablet) {
+      margin-left: -10px;
+    }
 
     &:hover, &:active, &:focus {
       outline: 0;
@@ -85,7 +106,12 @@ input {
     }
   }
 }
-.tagline { }
+.tagline {
+  @include breakpoint(mobile) {
+    margin-top: 0;
+    margin-right: 30%;
+  }
+}
 
 .dropdown {
   position: relative;
@@ -107,6 +133,10 @@ input {
   background: $color-background;
   list-style: none;
 
+  @include breakpoint(mobile) {
+
+  }
+
   .divider {
     overflow: hidden;
     margin: 3px 1px;
@@ -116,10 +146,16 @@ input {
   }
 
   a {
-    @include adjust-font-size-to(12px, 2/3);
     display: block;
     padding: 0 9px;
     color: $color-base;
+    @include breakpoint(mobile) {
+      @include adjust-font-size-to(21px);
+    }
+
+    @include breakpoint(tablet) {
+      @include adjust-font-size-to(12px, 2/3);
+    }
   }
 
   a:hover {
@@ -155,14 +191,23 @@ input {
   display: block;
 }
 
-.user-cards {
-  min-height: 14*$base-rhythm-unit;
+@include breakpoint(desktop) {
+  .user-cards {
+    min-height: 14*$base-rhythm-unit;
+  }
 }
+
 .user-card {
-    @include box-sizing(border-box);
+  @include box-sizing(border-box);
+
   .inner {
     @include padding-leader(1);
     @include padding-trailer(1);
+
+    @include breakpoint(mobile) {
+      @include padding-leader(1/2);
+      @include padding-trailer(1/2);
+    }
   }
 
   a {
@@ -194,9 +239,25 @@ input {
         @include box-shadow(0 0 0 2px transparentize($color-link, 0.3));
       }
     }
+
+    @include breakpoint(mobile) {
+      padding-top: 12px;
+      width: 36px;
+      height: 36px;
+
+      img {
+        @include border-radius(18px);
+        width: 36px;
+        height: 36px;
+      }
+    }
   }
   .r {
     margin-left: 64px + $base-line-height/2;
+    @include breakpoint(mobile) {
+      margin-left: 37px + $base-line-height/2;
+    }
+
   }
   .name {
     @include leader(0);
@@ -224,7 +285,7 @@ input {
   background: $color-link;
   color: $color-background;
 
-  [class*="icon-"]:before {
+  .icon-twitter:before {
     font-size: 0.8em;
   }
 }
@@ -252,7 +313,7 @@ input.button {
   text-align: center;
 
   .logo {
-    @include adjust-font-size-to(57px);
+    @include adjust-font-size-to(42px);
     color: $color-border;
   }
 }
@@ -270,14 +331,24 @@ input[readonly] {
   background: darken($color-background, 1%)
 }
 .form {
-  @include trailer(1);
+  @include trailer(3);
 
   .control-group {
     @include trailer(1);
   }
+  .controls {
+    input[type="text"] {
+      @include box-sizing(border-box);
+      width: 60%;
+      @include breakpoint(mobile) {
+        width: 100%;
+      }
+    }
+  }
   label {
     @include adjust-font-size-to(18px);
   }
+
   .error-text {
     @include font-bold;
     @include leader(1/3);
