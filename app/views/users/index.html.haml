@@ -19,6 +19,11 @@
                 :title => "Company Website",
                 :target => "_blank" }
               %span.org= user.company
+            - if user.city
+              = " · "
+              %span.adr
+                %span.locality= user.city.name
+
             - if current_user && current_user.is_admin?
               = " · "
               = link_to "Edit", edit_user_path(user.id)

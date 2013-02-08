@@ -41,6 +41,7 @@ class UsersController < ApplicationController
         not_found
       end
     end
+    @user.city_virtual = @user.city.name if @user.city
   end
 
   # POST /users
@@ -60,12 +61,20 @@ class UsersController < ApplicationController
     @user.url = params[:user][:url]
     @user.company = params[:user][:company]
     @user.company_url = params[:user][:company_url]
+    @user.city_virtual = params[:user][:city_virtual]
 
     if current_user.is_admin?
       @user.is_approved = params[:user][:is_approved]
     end
 
     if @user.valid?
+      city = City.where(:name => @user.city_virtual).first
+      if city
+        @user.city = city
+      else
+        @user.create_city :name=> @user.city_virtual
+      end
+
       @user.save
       flash[:success] = 'Profile Saved Successfully'
       redirect_to root_path

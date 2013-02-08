@@ -1,6 +1,14 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :company, :company_url, :url
+  attr_accessor :city_virtual
+  belongs_to :city
 
+  validates :city_virtual,
+            :on => :update,
+            :length => {
+              :minimum => 3,
+              :message => "Thats too short for a city name"
+            }
   validates :name,
             :length => {
               :minimum => 3,
