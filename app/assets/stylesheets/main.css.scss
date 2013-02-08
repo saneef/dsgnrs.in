@@ -309,12 +309,14 @@ input.button {
   border-top: 1px solid $color-border;
 }
 .footer-minor {
-  @include padding-leader();
   text-align: center;
 
   .logo {
-    @include adjust-font-size-to(42px);
+    @include leader(1);
     color: $color-border;
+    .icon-logo {
+      font-size: 2.28em;
+    }
   }
 }
 
