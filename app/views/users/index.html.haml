@@ -6,7 +6,7 @@
           %a{ :href => user.twitter_profile_url,
               :title => "#{user.name} on Twitter",
               :target => "_blank" }
-            %img{:src => user.image_url}
+            %img.photo{:src => user.image_url}
         .r
           %h3.name
             %a.url{ :href => user.url,
