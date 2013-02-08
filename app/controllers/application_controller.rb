@@ -1,8 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user
+  helper_method :current_user, :cities_with_users
 
   private
+    def cities_with_users
+      @cities_with_users = City.all.select do |city|
+        city.users.find(:all, :conditions => ["is_approved = ?", true]).size > 0
+      end
+    end
+
     def current_user
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end

@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
   # GET /users
   def index
-    city ||= params[:city]
+    if params[:city]
+      @city = City.where(:slug => params[:city]).first
+      logger.debug "Listings from: #{@city.name}"
 
-    if city
-      not_found
+      if @city
+        @users = @city.users.where(:is_approved => true)
+      else
+        not_found
+      end
     else
       @users = User.where(:is_approved => true)
     end
@@ -41,7 +46,7 @@ class UsersController < ApplicationController
         not_found
       end
     end
-    @user.city_virtual = @user.city.name if @user.city
+    @user.city_virtual = @user.city.name if @user && @user.city
   end
 
   # POST /users

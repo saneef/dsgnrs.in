@@ -19,7 +19,7 @@
                 :title => "Company Website",
                 :target => "_blank" }
               %span.org= user.company
-            - if user.city
+            - if not @city
               = " · "
               %span.adr
                 %span.locality= user.city.name

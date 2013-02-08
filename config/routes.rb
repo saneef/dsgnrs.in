@@ -12,6 +12,7 @@ DsgnrsIn::Application.routes.draw do
 
   get "/apply" => "users#edit", :as => :apply
   get "/profile" => "users#edit", :as => :profile
+
   match "/:city", :to => 'users#index', :as => :city
   root :to => 'users#index'
 end
