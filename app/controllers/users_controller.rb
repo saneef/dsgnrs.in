@@ -6,12 +6,20 @@ class UsersController < ApplicationController
       logger.debug "Listings from: #{@city.name}"
 
       if @city
-        @users = @city.users.where(:is_approved => true)
+        @users = @city.users.find(
+          :all,
+          :conditions => { :is_approved => true },
+          :order => 'LOWER(name)'
+        )
       else
         not_found
       end
     else
-      @users = User.where(:is_approved => true)
+      @users = User.find(
+        :all,
+        :conditions => { :is_approved => true },
+        :order => 'LOWER(name)'
+      )
     end
   end
 
