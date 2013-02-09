@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :cities_with_users
 
   private
+
     def cities_with_users
       @cities_with_users = City.all.select do |city|
         city.users.find(:all, :conditions => ["is_approved = ?", true]).size > 0
