@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def is_on_production?
+  def on_production?
     return Rails.env.production?
   end
 end
