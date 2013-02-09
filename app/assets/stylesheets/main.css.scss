@@ -233,7 +233,7 @@ input {
     }
     a:hover {
       img {
-        @include box-shadow(0 0 0 2px transparentize($color-link, 0.3));
+        @include box-shadow(0 0 0 4px $color-link);
       }
     }
 
