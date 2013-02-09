@@ -1,6 +1,6 @@
 .d1.user-cards
   - @users.each do |user|
-    .user-card.vcard
+    .user-card.vcard{:id => "designer-#{user.id}"}
       .inner
         .dp
           %a{ :href => user.twitter_profile_url,
