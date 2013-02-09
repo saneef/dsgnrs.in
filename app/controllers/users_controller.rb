@@ -79,6 +79,8 @@ class UsersController < ApplicationController
       permission_denied
     end
 
+    profile_save_msg = 'Profile Saved Successfully';
+
     @user = User.find(params[:id])
 
     @user.name = params[:user][:name]
@@ -87,6 +89,10 @@ class UsersController < ApplicationController
     @user.company = params[:user][:company]
     @user.company_url = params[:user][:company_url]
     @user.city_virtual = params[:user][:city_virtual]
+
+    if (@user.is_approved? != true) && (not current_user.is_admin?)
+      profile_save_msg = "Thanks for applying. We will list the profile after a quick check, very soon.";
+    end
 
     if current_user.is_admin?
       @user.is_approved = params[:user][:is_approved]
@@ -101,7 +107,7 @@ class UsersController < ApplicationController
       end
 
       @user.save
-      flash[:success] = 'Profile Saved Successfully'
+      flash[:success] = profile_save_msg
       redirect_to root_path
     else
       render action: "edit"
