@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
     if params[:city]
       @city = City.where(:slug => params[:city]).first
-      logger.debug "Listings from: #{@city.name}"
+      logger.debug "Listings from: #{@city.name}" if @city
 
       if @city
         @users = @city.users.find(
