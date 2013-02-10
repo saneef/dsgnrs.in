@@ -22,7 +22,7 @@
             - if (not @city) && (user.city)
               = " · "
               %span.adr
-                %a.url{ :href => city_path(user.city.slug),
+                %a{ :href => city_path(user.city.slug),
                     :title => "Designers in #{user.city.name}" }
                   %span.locality= user.city.name
 
