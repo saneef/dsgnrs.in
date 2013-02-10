@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user, :cities_with_users
+  helper_method :current_user, :cities_with_users, :site_tagline
 
   private
 
@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
 
     def current_user
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
+
+    def site_tagline
+      "The Missing Directory of Product Designers in India"
     end
 
     def redirect_back_or_default(default)
