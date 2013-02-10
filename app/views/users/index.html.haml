@@ -1,1 +1,9 @@
+- content_for :meta_desicription do
+  - if @city
+    %meta{:name => "description",
+          :content => "Product Designers in #{@city.name}"}
+  - else
+    %meta{:name => "description",
+          :content => site_tagline}
+
 = render 'shared/user-cards'
