@@ -81,4 +81,20 @@ class User < ActiveRecord::Base
   def is_approved?
     return self.is_approved
   end
+
+  def absolute_url
+    if self.url[/^http:\/\//] || self.url[/^https:\/\//]
+      self.url
+    else
+      'http://' + self.url
+    end
+  end
+
+  def company_absolute_url
+    if self.company_url[/^http:\/\//] || self.company_url[/^https:\/\//]
+      self.company_url
+    else
+      'http://' + self.company_url
+    end
+  end
 end
