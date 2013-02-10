@@ -28,6 +28,7 @@ gem 'haml'
 gem 'haml-rails'
 
 gem "friendly_id", "~> 4.0.9"
+gem "strip_attributes", "~> 1.2"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

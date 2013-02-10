@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :company, :company_url, :url
-  attr_accessor :city_virtual
   belongs_to :city
+
+  strip_attributes
 
   validates :city_virtual,
             :on => :update,
@@ -55,6 +56,14 @@ class User < ActiveRecord::Base
       user.is_admin = false
       user.is_approved = nil
     end
+  end
+
+  def city_virtual
+    @city_virtual
+  end
+
+  def city_virtual=(str)
+    @city_virtual = str.strip
   end
 
   def image_url
