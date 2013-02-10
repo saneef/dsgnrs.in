@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   validates :url,
             :on => :update,
             :format => {
-              :with => /\A(([\w-]+:\/\/?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|\/)))\z/,
+              :with => /\A(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?]))\z/,
               :message => "That doesn't seem like a good URL"
             }
   validates :company,
@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   validates :company_url,
             :on => :update,
             :format => {
-              :with => /\A(([\w-]+:\/\/?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|\/)))\z/,
+              :with => /\A(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?]))\z/,
               :message => "That doesn't seem like a good URL"
             }
 
