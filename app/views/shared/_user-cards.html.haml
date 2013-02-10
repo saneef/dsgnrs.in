@@ -22,7 +22,9 @@
             - if (not @city) && (user.city)
               = " · "
               %span.adr
-                %span.locality= user.city.name
+                %a.url{ :href => city_path(user.city.slug),
+                    :title => "Designers in #{user.city.name}" }
+                  %span.locality= user.city.name
 
             - if current_user && current_user.is_admin?
               = " · "
