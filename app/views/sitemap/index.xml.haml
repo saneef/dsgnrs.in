@@ -1,9 +1,10 @@
 !!! XML
 %urlset{ xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" }
-    %url
-        %loc= "#{@url_base}/"
-        %changefreq daily
+  %url
+    %loc= "#{@url_base}/"
+    %changefreq daily
 
-        - cities_with_users.each do |city|
-            %loc= "#{@url_base}/#{city.slug}/"
-            %changefreq daily
+  - cities_with_users.each do |city|
+    %url
+      %loc= "#{@url_base}/#{city.slug}/"
+      %changefreq daily
