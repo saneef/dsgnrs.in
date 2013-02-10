@@ -1,4 +1,11 @@
 DsgnrsIn::Application.routes.draw do
+  constraints(:host => "www.dsgnrs.in") do
+    # Won't match root path without brackets around "*x". (using Rails 3.0.3)
+    match "(*x)" => redirect { |params, request|
+      URI.parse(request.url).tap { |x| x.host = "dsgnrs.in" }.to_s
+    }
+  end
+
   resources :users
   # will give routes for users:
   # index, new, create, show, edit, update, destroy
