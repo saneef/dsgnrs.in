@@ -6,6 +6,8 @@ DsgnrsIn::Application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
 
+  match "/sitemap", :to => 'sitemap#index', :as => :sitemap
+
   match "/auth/twitter/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
   match '/auth/failure' => "sessions#failure"
