@@ -83,7 +83,9 @@ class User < ActiveRecord::Base
   end
 
   def absolute_url
-    if self.url[/^http:\/\//] || self.url[/^https:\/\//]
+    if self.url.blank?
+      ""
+    elsif self.url[/^http:\/\//] || self.url[/^https:\/\//]
       self.url
     else
       'http://' + self.url
@@ -91,7 +93,9 @@ class User < ActiveRecord::Base
   end
 
   def company_absolute_url
-    if self.company_url[/^http:\/\//] || self.company_url[/^https:\/\//]
+    if self.company_url.blank?
+      ""
+    elsif self.company_url[/^http:\/\//] || self.company_url[/^https:\/\//]
       self.company_url
     else
       'http://' + self.company_url
