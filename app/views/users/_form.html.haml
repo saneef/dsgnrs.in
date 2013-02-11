@@ -27,6 +27,7 @@
       = f.text_field :url
       - @user.errors[:url].each do |msg|
         .error-text= msg
+    %p Show us some of your works
 
   %div{:class => ["control-group", "#{@user.errors.has_key?(:company) ? "error" : nil}"]}
     = f.label :company, :class => 'control-label'

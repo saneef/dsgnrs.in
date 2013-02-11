@@ -12,9 +12,11 @@ $base-line-height: 32px;
 // http://modularscale.com/scale/?px1=24&px2=32&ra1=1.333&ra2=0
 
 $color-base: #595643;
+$color-base-light: lighten($color-base, 25%);
+$color-base-lighter: lighten($color-base, 55%);
 $color-link: #ED834E;
 $color-link-hover: darken(#ED834E, 15%);
-$color-border: lighten($color-base, 55%);
+$color-border: $color-base-lighter;
 $color-background: lighten(#EBE1C5, 11%);
 $color-background-success: #88d07e;
 
@@ -335,13 +337,24 @@ input[readonly] {
 
   .control-group {
     @include trailer(1);
+
+    p {
+      display: block;
+      @include leader(1/3);
+      @include trailer(0);
+      @include adjust-font-size-to(18px);
+      color: $color-base-light;
+      @include breakpoint(tablet) {
+        width: 60%;
+      }
+    }
   }
   .controls {
     input[type="text"] {
       @include box-sizing(border-box);
-      width: 60%;
-      @include breakpoint(mobile) {
-        width: 100%;
+      width: 100%;
+      @include breakpoint(tablet) {
+        width: 60%;
       }
     }
   }
