@@ -22,7 +22,7 @@
       = f.text_field :nickname, :readonly => true
 
   %div{:class => ["control-group", "#{@user.errors.has_key?(:url) ? "error" : nil}"]}
-    = f.label :url, "Personal Website or Portfolio", :class => 'control-label'
+    = f.label :url, "Portfolio", :class => 'control-label'
     .controls
       = f.text_field :url
       - @user.errors[:url].each do |msg|
