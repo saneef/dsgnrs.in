@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     if current_user && current_user.is_admin?
       redirect_to action: "edit"
     else
-      not_found
+      redirect_to "#{root_path}\#designer-#{params[:id]}"
     end
   end
 
