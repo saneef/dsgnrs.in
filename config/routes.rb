@@ -6,6 +6,8 @@ DsgnrsIn::Application.routes.draw do
     }
   end
 
+  get "/feed", :to => 'syndicator#feed'
+
   resources :users
   # will give routes for users:
   # index, new, create, show, edit, update, destroy
