@@ -58,6 +58,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.all_with_approval_status(status)
+    self.find(
+      :all,
+      :conditions => { :is_approved => status },
+      :order => 'created_at DESC'
+    )
+  end
+
   def city_virtual
     @city_virtual
   end
