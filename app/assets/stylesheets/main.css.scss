@@ -55,6 +55,12 @@ h1 {
   @include breakpoint(tablet) {
     @include trailer(1/3);
   }
+
+  .site-title {
+    .char2 {
+      margin-left: -0.04651154125636em;
+    }
+  }
 }
 
 sup, sub {
