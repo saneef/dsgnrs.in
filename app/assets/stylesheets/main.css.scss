@@ -308,7 +308,7 @@ input {
 
 .button {
   @include border-radius(24px);
-  padding: 4px 12px 0px 12px;
+  padding: 2px 12px 0px;
   background: $color-link;
   color: $color-background;
 
