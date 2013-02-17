@@ -121,7 +121,9 @@ input {
     margin-right: 30%;
   }
 }
-
+.sidebar {
+  @include padding-leader(1);
+}
 .dropdown {
   position: relative;
   display: inline-block;
@@ -296,7 +298,7 @@ input {
 
 .button {
   @include border-radius(24px);
-  padding: 2px 12px 1px 12px;
+  padding: 4px 12px 0px 12px;
   background: $color-link;
   color: $color-background;
 
