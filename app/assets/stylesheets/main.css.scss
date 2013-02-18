@@ -131,9 +131,12 @@ input {
     margin-right: 30%;
   }
 }
+
 .sidebar {
-  @include padding-leader(1);
+  @include padding-leader();
+  @include padding-trailer();
 }
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -146,7 +149,6 @@ input {
   width: 100%;
   background: $color-background;
   list-style: none;
-
 
   @include breakpoint(tablet) {
     position: absolute;
@@ -171,6 +173,7 @@ input {
       border-left: 7px solid transparent;
       content: '';
     }
+
     &::after {
       position: absolute;
       top: -6px;
@@ -196,6 +199,7 @@ input {
     display: block;
     padding: 0 9px;
     color: $color-base;
+
     @include breakpoint(mobile) {
       @include adjust-font-size-to(21px);
       padding: 6px 5%;
