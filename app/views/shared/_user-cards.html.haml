@@ -9,8 +9,8 @@
             %img.photo{:src => user.image_url}
         .r
           %h3.name
-            %a.url{ :href => user.absolute_url,
-                :title => "Website",
+            %a.url{ :href => user.twitter_profile_url,
+                :title => "#{user.name} on Twitter",
                 :target => "_blank" }
               %span.fn= user.name
 
@@ -27,5 +27,7 @@
                   %span.locality= user.city.name
 
             - if current_user && current_user.is_admin?
+              = " · "
+              = link_to "Portfolio", user.absolute_url, :title => 'Portfolio'
               = " · "
               = link_to "Edit", edit_user_path(user.id)
