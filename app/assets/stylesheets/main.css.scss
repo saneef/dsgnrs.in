@@ -316,6 +316,10 @@ input {
   background: $color-link;
   color: $color-background;
 
+  @include breakpoint(desktop) {
+    padding-top: 4px;
+  }
+
   .icon-twitter:before {
     font-size: 0.8em;
   }
