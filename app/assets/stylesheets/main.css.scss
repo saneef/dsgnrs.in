@@ -126,6 +126,8 @@ input {
 }
 
 .tagline {
+  margin-bottom: 0;
+
   @include breakpoint(mobile) {
     margin-top: 0;
     margin-right: 30%;
