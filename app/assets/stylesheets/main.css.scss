@@ -142,7 +142,7 @@ input {
     }
     @include breakpoint(tablet) {
       @include border-radius(24px);
-      padding: 2px 12px 2px 12px;
+      padding: 0 12px;
       margin-left: -10px;
 
       &:hover, &:active, &:focus {
@@ -156,6 +156,9 @@ input {
 .wf-active {
   .home {
     .header {
+      .change-city > a {
+        display: inline-block;
+      }
       .icon-location {
         display: inline-block;
         -webkit-animation: bounceInDown 0.7s ease-out;
