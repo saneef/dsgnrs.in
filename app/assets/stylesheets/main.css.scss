@@ -140,16 +140,6 @@ input {
     .icon-location {
       @include adjust-font-size-to(14px);
     }
-    @include breakpoint(tablet) {
-      @include border-radius(24px);
-      padding: 0 12px;
-      margin-left: -10px;
-
-      &:hover, &:active, &:focus {
-        outline: 0;
-        background: darken($color-background, 2%);
-      }
-    }
   }
 }
 
