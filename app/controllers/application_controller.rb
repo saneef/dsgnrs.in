@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user, :cities_with_users, :site_tagline, :site_title
+  helper_method :current_user,
+                :cities_with_users,
+                :site_tagline,
+                :site_title,
+                :body_classnames
 
   private
 
@@ -39,5 +43,13 @@ class ApplicationController < ActionController::Base
 
     def permission_denied
       render :file => "public/404.html", :status => 401, :layout => false
+    end
+
+    def body_classnames=(classnames)
+      @body_classnames = classnames
+    end
+
+    def body_classnames
+      @body_classnames
     end
 end

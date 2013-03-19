@@ -24,6 +24,7 @@ class UsersController < ApplicationController
       end
     else
       @users = User.all_with_approval_status query_user_status
+      @body_classnames = 'home'
     end
   end
 
