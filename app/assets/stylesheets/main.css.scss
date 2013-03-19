@@ -5,6 +5,7 @@
 @import "normalize";
 @import "fonticons";
 @import "mixins";
+@import "keyframes";
 
 $base-font-size: 24px;
 $base-line-height: 32px;
@@ -100,6 +101,33 @@ input {
   color: $color-base;
 }
 
+@include keyframes(bounceInDown) {
+  0% {
+    opacity: 0;
+    @include transform(translateY(-1000px));
+  }
+
+  60% {
+    opacity: 1;
+    @include transform(translateY(0px));
+  }
+  65% {
+    @include transform(translateY(2px) scaleY(0.8));
+  }
+
+  80% {
+    @include transform(translateY(-20px) scaleY(1.2));
+  }
+
+  95% {
+    @include transform(translateY(2px) scaleY(0.8));
+  }
+
+  100% {
+    @include transform(translateY(0) scaleY(1));
+  }
+}
+
 .header {
   @include breakpoint(mobile) {
     @include trailer();
@@ -120,6 +148,20 @@ input {
       &:hover, &:active, &:focus {
         outline: 0;
         background: darken($color-background, 2%);
+      }
+    }
+  }
+}
+
+.wf-active {
+  .home {
+    .header {
+      .icon-location {
+        display: inline-block;
+        -webkit-animation: bounceInDown 0.7s ease-out;
+           -moz-animation: bounceInDown 0.7s ease-out;
+             -o-animation: bounceInDown 0.7s ease-out;
+                animation: bounceInDown 0.7s ease-out;
       }
     }
   }
