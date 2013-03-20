@@ -6,7 +6,8 @@ class SyndicatorController < ApplicationController
     @users = User.find(
       :all,
       :conditions => { :is_approved => true },
-      :order => 'created_at desc'
+      :order => 'created_at desc',
+      :limit => 15
     )
 
     @updated = @users.first.updated_at unless @users.empty?
