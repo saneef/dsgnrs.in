@@ -1,6 +1,7 @@
 class SyndicatorController < ApplicationController
   def feed
     @title = site_title
+    expires_in 10.minutes, :public => true
 
     @users = User.find(
       :all,
