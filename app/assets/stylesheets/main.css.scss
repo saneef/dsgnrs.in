@@ -172,6 +172,12 @@ input {
 .sidebar {
   @include padding-leader();
   @include padding-trailer();
+
+  .sidebar--heading {
+    @include adjust-font-size-to(18px);
+    @include margin-leader(0);
+    @include margin-trailer(1/2);
+  }
 }
 
 .dropdown {
