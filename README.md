@@ -6,7 +6,7 @@ dsgnrs.in is a curated list of product designers. People can apply using their T
 1. Copy `config/sample.database.yml` to `config/database.yml` and fill your development database connection details
 2. Copy `sample.env` to `.env` and fill in your Twitter app keys
 3. Run `bundle` to install gems. If you face problem installing pg gem. Try [any of these fixes](http://stackoverflow.com/questions/9234960/gem-install-pg-with-pg-config-works-bundle-fails)
-4. `foreman start` to start the server
+4. Run `foreman start` to start the server
 
 ## Contributing
 
