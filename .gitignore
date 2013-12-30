@@ -17,3 +17,5 @@
 .DS_Store
 .env
 /vendor/bundle
+
+config/database.yml
