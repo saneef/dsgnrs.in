@@ -341,6 +341,7 @@ input {
   .minor {
     @include leader(0);
     @include trailer(0);
+    color: $color-base-light;
   }
 
   &:before {
