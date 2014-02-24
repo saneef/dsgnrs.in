@@ -92,7 +92,10 @@ a, a:focus {
   outline: 0;
 }
 
-p { }
+p {
+  @include leader(1);
+  @include trailer(1);
+}
 .minor {
   @include adjust-font-size-to(18px);
 }
@@ -387,6 +390,11 @@ input.button {
 .footer-major, .footer-minor {
   border-top: 1px solid $color-border;
 }
+.footer-major {
+  .minor {
+    @include leader(3);
+  }
+}
 .footer-minor {
   text-align: center;
 
@@ -396,7 +404,8 @@ input.button {
     color: $color-base-lighter;
 
     .icon-logo {
-      font-size: 2.28em;
+      font-size: 3.125em;
+      line-height: 0.71641791;
     }
 
     &:hover,
