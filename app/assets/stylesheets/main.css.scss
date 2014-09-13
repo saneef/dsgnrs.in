@@ -329,13 +329,14 @@ input {
       }
     }
   }
-  .r {
-    margin-left: 64px + $base-line-height/2;
-    @include breakpoint(mobile) {
-      margin-left: 37px + $base-line-height/2;
-    }
 
-  }
+  // .r {
+  //   margin-left: 64px + $base-line-height/2;
+  //   @include breakpoint(mobile) {
+  //     margin-left: 37px + $base-line-height/2;
+  //   }
+  // }
+
   .name {
     @include leader(0);
     font-weight: 300;
