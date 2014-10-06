@@ -57,7 +57,7 @@
                :title => "Change City",
                "data-toggle" => "dropdown"}<
               = @city ? @city.name : "India"
-              %span.icon-location
+              %span.icon-location>
             %ul#city-menu.dropdown-menu{:role => "menu",
                               "aria-labelledby" => "Cities"}
               - cities_with_users.each do |city|

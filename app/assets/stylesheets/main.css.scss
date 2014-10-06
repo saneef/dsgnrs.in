@@ -142,6 +142,7 @@ input {
   .change-city > a {
     .icon-location {
       @include adjust-font-size-to(14px);
+      margin-left: $base-line-height/4;
     }
   }
 }
