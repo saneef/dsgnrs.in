@@ -1,0 +1,1 @@
+Haml::Helpers.send(:include, Gravatarify::Helper)

@@ -46,3 +46,4 @@ gem "strip_attributes", "~> 1.2"
 # gem 'debugger'
 
 gem 'omniauth-twitter'
+gem 'gravatarify'

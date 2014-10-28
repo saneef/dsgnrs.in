@@ -2,12 +2,11 @@
   - @users.each do |user|
     .user-card.vcard{:id => "designer-#{user.id}"}
       .inner
-        -#
-          .dp
-            %a{ :href => user.twitter_profile_url,
-                :title => "#{user.name} on Twitter",
-                :target => "_blank" }
-              %img.photo{:src => user.image_url}
+        .dp
+          %a{ :href => user.twitter_profile_url,
+              :title => "#{user.name} on Twitter",
+              :target => "_blank" }
+            %img.photo{ gravatar_attrs(user.email, :size => 128, :secure => true, :default => "retro") }
         .r
           %h3.name
             %a.url{ :href => user.twitter_profile_url,
