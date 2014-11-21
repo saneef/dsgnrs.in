@@ -13,8 +13,6 @@ toggleCityMenuOnMobile = (e)->
         $('#city-menu').addClass 'on'
 
 $ ->
-  $('.site-title').lettering()
-
   enquire.register("screen and (max-width: 767px)",
     match: ->
       console.log "On Mobile"
