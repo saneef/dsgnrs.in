@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.3'
 
 gem 'rails', '3.2.11'
 
@@ -22,9 +23,15 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :production do
+  gem 'rails_12factor'
+  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+end
+
 gem 'jquery-rails'
 
-gem 'haml'
+gem 'haml' '~>4.0.5'
 gem 'haml-rails'
 
 gem "friendly_id", "~> 4.0.9"
