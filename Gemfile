@@ -31,7 +31,7 @@ end
 
 gem 'jquery-rails'
 
-gem 'haml' '~>4.0.5'
+gem 'haml', '~>4.0.5'
 gem 'haml-rails'
 
 gem "friendly_id", "~> 4.0.9"
