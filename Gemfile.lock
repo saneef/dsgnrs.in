@@ -74,6 +74,8 @@ GEM
     hashie (3.3.1)
     hike (1.2.3)
     i18n (0.6.11)
+    intercom-rails (0.2.27)
+      activesupport (> 3.0)
     journey (1.0.4)
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
@@ -163,6 +165,7 @@ DEPENDENCIES
   gravatarify
   haml (~> 4.0.5)
   haml-rails
+  intercom-rails
   jquery-rails
   omniauth-twitter
   pg

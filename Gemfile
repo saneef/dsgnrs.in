@@ -54,3 +54,5 @@ gem "strip_attributes", "~> 1.2"
 
 gem 'omniauth-twitter'
 gem 'gravatarify'
+
+gem 'intercom-rails'
