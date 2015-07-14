@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
     end
 
     def permission_denied
-      render :file => "public/404.html", :status => 401, :layout => false
+      render :file => "public/404.html", :status => 403, :layout => false
     end
 
     def body_classnames=(classnames)
