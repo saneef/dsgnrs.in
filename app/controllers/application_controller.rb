@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     end
 
     def site_tagline
-      "The Missing Directory of Product Designers in India"
+      "The Missing Directory of Product Designers in India"
     end
 
     def redirect_back_or_default(default)
