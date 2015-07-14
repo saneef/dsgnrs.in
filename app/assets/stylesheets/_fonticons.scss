@@ -17,7 +17,7 @@
   speak: none;
   font-weight: normal;
   line-height: 1;
-  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }
 
 /* Use the following CSS code if you want to have a class per icon */
@@ -34,7 +34,7 @@ you can use the generic selector below, but it's slower:
   font-style: normal;
   font-weight: normal;
   line-height: 1;
-  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }
 .icon-logo:before {
   content: "\e000";

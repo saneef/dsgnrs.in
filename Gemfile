@@ -11,12 +11,13 @@ gem 'pg'
 
 gem 'haml', '~>4.0.5'
 gem 'haml-rails'
-gem "friendly_id", "~> 5.1.0"
-gem "strip_attributes", "~> 1.2"
+gem 'friendly_id', '~> 5.1.0'
+gem 'strip_attributes', '~> 1.2'
 
 gem 'jquery-rails'
 gem 'sass-rails',   '~> 5.0.1'
 gem 'compass-rails', '~> 2.0.4'
+gem 'autoprefixer-rails'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'uglifier', '>= 2.7.1'
 
