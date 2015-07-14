@@ -9,11 +9,11 @@ class ApplicationController < ActionController::Base
   private
 
     def cities_with_users
+      ids_of_cities_with_approved_users = User.all_approved.pluck(:city_id).uniq
+
       @cities_with_users = City
-      .order("lower(name)")
-      .select do |city|
-        city.users.where("is_approved = ?", true).size > 0
-      end
+        .where('id' => ids_of_cities_with_approved_users)
+        .order('lower(name)')
     end
 
     def current_user
