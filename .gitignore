@@ -18,3 +18,4 @@
 .env
 /vendor/bundle
 config/database.yml
+/bin
