@@ -58,9 +58,16 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.all_with_approval_status(status)
-    logger.debug("******* status: #{status}")
-    self.where("is_approved = ?", status).order('created_at DESC')
+  def self.all_waiting
+    self.where(is_approved: nil).order('created_at DESC')
+  end
+
+  def self.all_approved
+    self.where(is_approved: true).order('created_at DESC')
+  end
+
+  def self.all_rejected
+    self.where(is_approved: false).order('created_at DESC')
   end
 
   def city_virtual

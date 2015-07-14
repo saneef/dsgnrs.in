@@ -1,11 +1,8 @@
 - content_for :meta_desicription do
-  - if @city
-    %meta{:name => "description",
-          :content => "Product Designers in #{@city.name}"}
-  - else
-    %meta{:name => "description",
-          :content => site_tagline}
+  %meta{:name => "description",
+        :content => site_tagline}
+  - if ENV['GOOGLE_SITE_VERIFICATION']
     %meta{:name => "google-site-verification",
-          :content => "GI4NQy-h2H369f6YMUomcSzpMorrwFEj8HzY9WW6JpU"}
+          :content => ENV['GOOGLE_SITE_VERIFICATION']}
 
 = render 'shared/user_cards'

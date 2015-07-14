@@ -1,31 +1,8 @@
 class UsersController < ApplicationController
   # GET /users
   def index
-    query_user_status = true
-    if current_user && current_user.is_admin? && params[:status]
-      query_user_status = case params[:status]
-                          when 'approved' then true
-                          when 'rejected' then false
-                          when 'waiting' then nil #If admin take no action.
-                          else nil
-                          end
-    elsif params[:status] && current_user && (not current_user.is_admin?)
-        not_found
-    end
-
-    if params[:city]
-      @city = City.where(:slug => params[:city]).first
-      logger.debug "Listings from: #{@city.name}" if @city
-
-      if @city
-        @users = @city.users.all_with_approval_status query_user_status
-      else
-        not_found
-      end
-    else
-      @users = User.all_with_approval_status query_user_status
-      @body_classnames = 'home'
-    end
+    @users = User.all_approved
+    @body_classnames = 'home'
   end
 
   # GET /users/1

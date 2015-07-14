@@ -15,16 +15,16 @@ DsgnrsIn::Application.routes.draw do
   get "sessions/create"
   get "sessions/destroy"
 
-  get "/sitemap", :to => 'sitemap#index', :as => :sitemap
-
+  get "/auth/failure" => "sessions#failure"
   get "/auth/twitter/callback" => "sessions#create"
   get "/signout" => "sessions#destroy", :as => :signout
-  get '/auth/failure' => "sessions#failure"
+  get "/sitemap", :to => 'sitemap#index', :as => :sitemap
 
   get "/apply" => "users#edit", :as => :apply
   get "/profile" => "users#edit", :as => :profile
-  get "/manage/(:status)", :to => 'users#index', :as => :filter
 
-  get "/:city", :to => 'users#index', :as => :city
-  root :to => 'users#index'
+  get "/curate/:status", :to => 'curate#index', :as => :curate
+  get "/:city", :to => 'cities#index', :as => :city
+
+  root :to => "users#index"
 end
