@@ -78,12 +78,6 @@
             = link_to "Profile", profile_path, :class => "button", :title => "Your Profile"
           - else
             = link_to "Apply", apply_path, :class => "button", :title => "Apply To Get Listed"
-        - if @users && ENV['JOB_SPARROW_ACCOUNT_ID']
-          .sidebar.job-sparrow
-            %h4.sidebar--heading Jobs for Designers
-            %script
-              jobWidgetSettings = {'account':'#{ENV['JOB_SPARROW_ACCOUNT_ID']}', 'category':'Design', 'width':'229px'};
-            %script{ :src => "//jobsparrow.co/assets/jobWidget.js" }
 
     %footer
       .wrapper
