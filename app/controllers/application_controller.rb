@@ -9,14 +9,10 @@ class ApplicationController < ActionController::Base
   private
 
     def cities_with_users
-      @cities_with_users = City.find(
-        :all,
-        :order => 'lower(name)'
-      ).select do |city|
-        city.users.find(
-          :all,
-          :conditions => ["is_approved = ?", true]
-        ).size > 0
+      @cities_with_users = City
+      .order("lower(name)")
+      .select do |city|
+        city.users.where("is_approved = ?", true).size > 0
       end
     end
 

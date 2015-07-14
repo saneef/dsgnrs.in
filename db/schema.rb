@@ -9,35 +9,38 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130208113935) do
+ActiveRecord::Schema.define(version: 20130208113935) do
 
-  create_table "cities", :force => true do |t|
-    t.string   "name"
-    t.string   "slug"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "slug",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  add_index "cities", ["slug"], :name => "index_cities_on_slug", :unique => true
+  add_index "cities", ["slug"], name: "index_cities_on_slug", unique: true, using: :btree
 
-  create_table "users", :force => true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.string   "nickname"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "email"
-    t.string   "url"
-    t.string   "company"
-    t.string   "company_url"
+  create_table "users", force: :cascade do |t|
+    t.string   "provider",    limit: 255
+    t.string   "uid",         limit: 255
+    t.string   "name",        limit: 255
+    t.string   "nickname",    limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "email",       limit: 255
+    t.string   "url",         limit: 255
+    t.string   "company",     limit: 255
+    t.string   "company_url", limit: 255
     t.boolean  "is_admin"
     t.boolean  "is_approved"
     t.integer  "city_id"
   end
 
-  add_index "users", ["city_id"], :name => "index_user_id"
+  add_index "users", ["city_id"], name: "index_user_id", using: :btree
 
 end

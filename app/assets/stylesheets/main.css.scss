@@ -274,7 +274,8 @@ input {
 
 @include breakpoint(desktop) {
   .user-cards {
-    min-height: 14*$base-rhythm-unit;
+    // TOFIX
+    // min-height: 14*$base-rhythm-unit;
   }
 }
 

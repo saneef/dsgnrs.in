@@ -3,12 +3,10 @@ class SyndicatorController < ApplicationController
     @title = site_title
     expires_in 10.minutes, :public => true
 
-    @users = User.find(
-      :all,
-      :conditions => { :is_approved => true },
-      :order => 'created_at desc',
-      :limit => 15
-    )
+    @users = User
+      .where('is_approved = ?', true)
+      .limit(15)
+      .order('created_at desc')
 
     @updated = @users.first.updated_at unless @users.empty?
 

@@ -59,11 +59,8 @@ class User < ActiveRecord::Base
   end
 
   def self.all_with_approval_status(status)
-    self.find(
-      :all,
-      :conditions => { :is_approved => status },
-      :order => 'created_at DESC'
-    )
+    logger.debug("******* status: #{status}")
+    self.where("is_approved = ?", status).order('created_at DESC')
   end
 
   def city_virtual
