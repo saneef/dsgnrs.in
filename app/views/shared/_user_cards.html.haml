@@ -14,20 +14,21 @@
                 :target => "_blank" }
               %span.fn= user.name
 
-          %p.minor<
+          %div.minor<
             %a.url{ :href => user.company_absolute_url,
                 :title => "Company Website",
-                :target => "_blank" }
+                :target => "_blank" }<
               %span.org= user.company
+
             - if (not @city) && (user.city)
-              = " · "
-              %span.adr
+              %span>= " · "
+              %span.adr<
                 %a{ :href => city_path(user.city.slug),
-                    :title => "Designers in #{user.city.name}" }
+                    :title => "Designers in #{user.city.name}" }<
                   %span.locality= user.city.name
 
             - if current_user && current_user.is_admin?
-              = " · "
-              = link_to "Portfolio", user.absolute_url, :title => 'Portfolio'
-              = " · "
-              = link_to "Edit", edit_user_path(user.id)
+              %span>= " · "
+              %span<= link_to "Portfolio", user.absolute_url, :title => 'Portfolio'
+              %span>= " · "
+              %span<= link_to "Edit", edit_user_path(user.id)
