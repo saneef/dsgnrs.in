@@ -455,6 +455,7 @@ input[readonly] {
       }
     }
   }
+
   .controls {
     input[type="text"] {
       @include box-sizing(border-box);
@@ -464,8 +465,13 @@ input[readonly] {
       }
     }
   }
+
   label {
     @include adjust-font-size-to(18px);
+  }
+
+  legend {
+    @include trailer(1);
   }
 
   .error-text {

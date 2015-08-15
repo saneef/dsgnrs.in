@@ -50,6 +50,14 @@
       - @user.errors[:city_virtual].each do |msg|
         .error-text= msg
 
+  %legend{:class=> ["legend"]}
+    We use
+    %a.url{ :href => "https://gravatar.com/",
+        :title => "Gravatar",
+        :target => "_blank" }<
+      Gravatar
+    to show your profile picture.
+
   - if current_user && current_user.is_admin?
     %div{:class => ["control-group"]}
       .controls
