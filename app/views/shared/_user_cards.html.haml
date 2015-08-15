@@ -20,14 +20,14 @@
                 :target => "_blank" }
               %span.org= user.company
             - if (not @city) && (user.city)
-              = " · "
+              = " · "
               %span.adr
                 %a{ :href => city_path(user.city.slug),
                     :title => "Designers in #{user.city.name}" }
                   %span.locality= user.city.name
 
             - if current_user && current_user.is_admin?
-              = " · "
+              = " · "
               = link_to "Portfolio", user.absolute_url, :title => 'Portfolio'
-              = " · "
+              = " · "
               = link_to "Edit", edit_user_path(user.id)
