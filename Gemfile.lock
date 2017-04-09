@@ -216,5 +216,8 @@ DEPENDENCIES
   thin
   uglifier (>= 2.7.1)
 
+RUBY VERSION
+   ruby 2.2.2p95
+
 BUNDLED WITH
-   1.10.5
+   1.14.6
