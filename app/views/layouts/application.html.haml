@@ -20,12 +20,9 @@
     %link{:rel=> "logo",
           :type=> "image/svg",
           :href=> asset_path('logo.svg')}
+    %link{:href => "https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600",
+          :rel => "stylesheet"}
 
-
-    - if on_production?
-      %script{ :src => "//use.typekit.net/mnl1kcw.js" }
-      %script
-        try{Typekit.load();}catch(e){}
 
     = csrf_meta_tags
   %body{:class => @body_classnames }
@@ -105,18 +102,6 @@
 
     = javascript_include_tag 'application'
 
-    -# To display text in non web-font
-    -# if internet is out during dev.
-    - unless on_production?
-      %script
-        :plain
-          (function() {
-            var config = {
-              kitId: 'mnl1kcw',
-              scriptTimeout: 3000
-            };
-            var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
-          })();
     - if on_production?
       %script
         :plain

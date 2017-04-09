@@ -32,12 +32,9 @@ $base-font-feature-settings: 'liga';
 @import "grid";
 
 @mixin font-weight-light {
-  font-weight: 300;
-}
-@mixin font-weight-regular {
   font-weight: 400;
 }
-@mixin font-weight-semibold {
+@mixin font-weight-regular {
   font-weight: 600;
 }
 
@@ -45,7 +42,7 @@ body {
   @include font-weight-light;
   background: $color-background;
   color: $color-base;
-  font-family: "chaparral-pro", Times, "Times New Roman", serif;
+  font-family: "Source Serif Pro", Georgia, Times, "Times New Roman", serif;
   font-feature-settings: 'liga';
 
   @include breakpoint(mobile) {
@@ -75,6 +72,10 @@ h1 {
 
 h2, h3 {
   @include font-weight-regular;
+}
+
+h3 {
+  @include adjust-font-size-to(27px);
 }
 
 sup, sub {
@@ -107,7 +108,7 @@ abbr[title] {
 }
 
 .minor {
-  @include adjust-font-size-to(18px);
+  @include adjust-font-size-to(16px);
 }
 
 input {
@@ -177,7 +178,6 @@ input {
 
   @include breakpoint(mobile) {
     margin-top: 0;
-    margin-right: 30%;
   }
 }
 
